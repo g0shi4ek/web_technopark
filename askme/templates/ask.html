@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h1>New Question</h1>
+    </div>
+
+    <articles class="d-flex gap-3 flex-column">
+        <div class="card">
+            <div class="card-body">
+                <input type="text" class="form-control form-control-lg mb-3" placeholder="Title" value="">
+                <textarea class="form-control mb-3" rows="4" placeholder="Details"></textarea>
+                <div class="input-group input-group-sm mb-3">
+                    <span class="input-group-text">Tags:</span>
+                    <input type="text" class="form-control">
+                </div>
+                <button class="btn btn-outline-primary" type="submit">Ask</button>
+            </div>
+        </div>
+    </articles>
+{% endblock %}

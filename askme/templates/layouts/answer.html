@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="card mb-3 answer-card">
+    <div class="card-header d-flex justify-content-between align-items-center bg-light">
+        <div class="d-flex align-items-center">
+            <img src="{% static question.img_path %}" alt="Avatar" class="rounded-circle me-2" width="40" height="40">
+            <div>
+                <h6 class="mb-0">User 1</h6>
+                <small class="text-muted">15.01.2015</small>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="answer-content mb-3">
+            answer text
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+            <label class="form-check-label" for="flexCheckChecked">correct?</label>
+        </div>
+    </div>
+</div>

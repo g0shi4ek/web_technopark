@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h2>Log in</h2>
+    </div>
+    <div class="alert alert-danger" role="alert">
+        Sorry, wrong password!
+    </div>
+    <form class="col-5">
+        <div class="mb-4">
+            <label for="login" class="form-label">Login</label>
+            <input type="text" class="form-control form-control" id="login" placeholder="Enter your login here">
+        </div>
+
+        <div class="mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control form-control" id="password" placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mb-3">
+            Log in!
+        </button>
+
+        <div class="text-center">
+            <a href="#" class="text-decoration-none">create new account</a>
+        </div>
+    </form>
+
+    {% include "layouts/pagination.html" %}
+{% endblock %}

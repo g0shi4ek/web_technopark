@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="d-flex align-items-center gap-2 mb-4">
+        <h1>{{ question.title }}</h1>
+    </div>
+
+    {% include "layouts/question.html" %}
+
+    {% include "layouts/answer.html" %}
+
+    <div>
+        <textarea class="form-control mb-3" rows="7" placeholder="Enter your answer here..."></textarea>
+        <button class="btn btn-outline-success" type="submit">Answer</button>
+    </div>
+
+{% endblock %}
