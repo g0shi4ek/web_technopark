@@ -8,11 +8,15 @@
 
     {% include "layouts/question.html" %}
 
-    {% include "layouts/answer.html" %}
+    {% for answer in answers %}
+        {% include "layouts/answer.html" %}
+    {% endfor %}
 
     <div>
         <textarea class="form-control mb-3" rows="7" placeholder="Enter your answer here..."></textarea>
         <button class="btn btn-outline-success" type="submit">Answer</button>
     </div>
+
+    {% include "layouts/pagination.html" %}
 
 {% endblock %}

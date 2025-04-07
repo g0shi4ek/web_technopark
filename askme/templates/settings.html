@@ -3,14 +3,14 @@
 
 {% block content %}
     <div class="d-flex align-items-center mb-4">
-        <h2>Settings: Dr.Pepper</h2>
+        <h2>Settings: {{ user.username }}</h2>
     </div>
 
     <div class="card-body">
         <div class="col mb-4">
             <div class="mb-4">
                 <label class="form-label">Login</label>
-                <input type="text" class="form-control" value="dr_pepper">
+                <input type="text" class="form-control" value="DrPepper">
             </div>
 
             <div class="mb-4">
@@ -26,7 +26,7 @@
 
         <div class="col-7 text-center">
             <div style="height: 200px; width: 200px;" class="border mb-2">
-                <img src="#" alt="img" class="img-fluid">
+                <img src="{% if user.profile.avatar %}{{ user.profile.avatar.url }}{% else %}{% static question.img_path %}{% endif %}" alt="img" class="img-fluid">
             </div>
             
             <div class="input-group">
@@ -40,5 +40,4 @@
         </div>
     </div>
 
-    {% include "layouts/pagination.html" %}
 {% endblock %}

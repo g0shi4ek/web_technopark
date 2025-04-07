@@ -2,9 +2,7 @@
 {% load static %}
 
 {% block content %}
-    <div class="d-flex align-items-center gap-2 mb-4">
-        <h1>Tag: {{ tag }} </h1>
-    </div>
+    <h1>Questions tagged [{{ tag.name }}]</h1>
 
     {% for question in questions %}
         {% include "layouts/question.html" %}

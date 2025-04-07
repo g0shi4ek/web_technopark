@@ -1,43 +1,39 @@
 {% load static %}
 
-<articles class="d-flex mb-3 flex-column">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-2">
-                    <div class="image-container border mb-2 w-100" style="height: 100px;">
-                        <img src="{% static question.img_path %}" alt="img" class="img-fluid h-100 w-100 object-fit-cover">
-                    </div>
-                    <div>
-                        <input type="number" class="form-control" value="5">
-                    </div>
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2 text-center">
+                <div class="mb-3">
+                    <div class="h4">{{ question.likes_count }}</div>
+                    <small class="text-muted">votes</small>
                 </div>
-                <div class="col d-flex flex-column justify-content-between">
+                <div>
+                    <div class="h4">{{ question.answers_count }}</div>
+                    <small class="text-muted">answers</small>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <h5 class="card-title">
+                    <a href="{% url 'question' question.id %}" class="text-decoration-none">
+                        {{ question.title }}
+                    </a>
+                </h5>
+                <p class="card-text">{{ question.text|truncatewords:50 }}</p>
+                <div class="d-flex justify-content-between align-items-center">
                     <div>
-                        <h5 class="card-title">
-                            <a href="{% url 'question' question.id %}">{{ question.title }}</a>
-                        </h5>
-                        <p class="card-text">
-                            {{ question.text }}
-                        </p>
+                        {% for tag in question.tags.all %}
+                            <a href="{% url 'questions_by_tag' tag.name %}" class="badge bg-primary text-decoration-none me-1">{{ tag.name }}</a>
+                        {% endfor %}
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="{% url 'question' question.id %}">Answers (3)</a>
-                        </div>
-                        <div class="col">
-                            <span>Tags:</span>
-                            {% for tag in question.tags %}
-                                <a href="{% url 'questions_by_tag' tag %}" class="badge bg-secondary text-decoration-none me-1">
-                                    {{ tag }}
-                                </a>
-                            {% empty %}
-                                <span class="text-muted">No tags</span>
-                            {% endfor %}
-                        </div>
+                    <div class="text-end">
+                        <small class="text-muted">
+                            Asked by <a href="#">{{ question.author.username }}</a><br>
+                            {{ question.created_at|date:"M d, Y" }}
+                        </small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</articles>
+</div>

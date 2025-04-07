@@ -7,10 +7,10 @@
         <a href="{% url 'hot' %}">Hot Questions</a>
     </div>
 
-    
     {% for question in questions %}
         {% include "layouts/question.html" %}
     {% endfor %}
 
     {% include "layouts/pagination.html" %}
+
 {% endblock %}
